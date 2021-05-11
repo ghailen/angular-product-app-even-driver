@@ -1,3 +1,4 @@
+import { EventEdriverService } from './../../services/event.driver.service';
 
 import { HttpClient } from '@angular/common/http';
 import { Product } from './../model/product.model';
@@ -17,9 +18,12 @@ export class ProductsComponent implements OnInit {
   products$: Observable<AppDataState<Product[]>> | null = null;
   readonly DataStateEnum = DataStateEnum;
 
-  constructor(private productsService: ProductService, private router: Router) { }
+  constructor(private eventDrvierService:EventEdriverService, private productsService: ProductService, private router: Router) { }
 
   ngOnInit(): void {
+    this.eventDrvierService.sourceEventSubjectObservable.subscribe((actionEvent:ActionEvent)=>{
+this.onActionEvent(actionEvent);
+    });
   }
 
   onGetAllProducts() {

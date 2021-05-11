@@ -31,6 +31,14 @@
       "quantity": "8",
       "selected": true,
       "available": false
+    },
+    {
+      "name": "jjj",
+      "price": 0,
+      "quantity": 0,
+      "selected": true,
+      "available": true,
+      "id": 5
     }
   ]
 }
